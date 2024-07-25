@@ -13,22 +13,27 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/html-validator',
   ],
+
   experimental: {
     inlineSSRStyles: false,
     viewTransition: true,
     renderJsonPayloads: true,
   },
+
   routeRules: {
     '/**': isDev ? {} : { cache: { swr: true, maxAge: 120, staleMaxAge: 60, headersOnly: true } },
   },
+
   runtimeConfig: {
     public: {
       apiBaseUrl,
     },
   },
+
   devtools: {
     enabled: true,
   },
+
   image: {
     provider: 'proxy',
     providers: {
@@ -40,11 +45,13 @@ export default defineNuxtConfig({
       },
     },
   },
+
   nitro: {
     routeRules: {
       '/**': { isr: false },
     },
   },
+
   i18n: {
     detectBrowserLanguage: {
       useCookie: true,
@@ -112,6 +119,7 @@ export default defineNuxtConfig({
     langDir: 'internationalization',
     defaultLocale: 'en',
   },
+
   htmlValidator: {
     usePrettier: false,
     logLevel: 'verbose',
@@ -139,4 +147,6 @@ export default defineNuxtConfig({
       }
     }
   },
+
+  compatibilityDate: '2024-07-25',
 })
